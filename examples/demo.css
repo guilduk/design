@@ -1,0 +1,17 @@
+/* Only for the example pages */
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { margin: 0; }
+.demo-hero { display: grid; gap: 24px; padding-block: 24px; }
+.demo-swatches { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.demo-swatch { display: grid; align-content: end; gap: 2px; min-height: 120px; padding: 14px; border-radius: var(--gu-radius-md); border: 1px solid var(--gu-line); }
+.demo-swatch b { font-weight: 600; } .demo-swatch span { font-size: 13px; font-variant-numeric: tabular-nums; }
+.demo-forest { background: #174131; color: #fff; } .demo-ink { background: #142019; color: #fff; }
+.demo-coral { background: #F39380; color: #142019; } .demo-sage { background: #E0F0E7; color: #174131; }
+.demo-moss { background: #5A635D; color: #fff; } .demo-white { background: #fff; color: #142019; }
+.demo-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.demo-icons figure { display: grid; gap: 8px; justify-items: start; margin: 0; }
+.demo-icons img { border-radius: 22%; }
+.demo-icons figure:nth-child(n+3) img { border-radius: 0; }
+@media (max-width: 860px) { .demo-nav { display: none; } }
+@media (min-width: 1024px) { .demo-phone-brand { visibility: hidden; } }
+@media (max-width: 640px) { .demo-stats .gu-stat-value { font-size: 28px; } }

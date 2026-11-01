@@ -1,0 +1,301 @@
+/* Guild Design: base styles and components. Load css/tokens.css first.
+   Everything is a class starting gu-, so it sits beside any framework without clashing.
+   Rules in docs/DESIGN.md. Live examples in examples/index.html. */
+
+/* ---------- Base ---------- */
+.gu, .gu-base {
+  font-family: var(--gu-font-sans);
+  font-size: var(--gu-size-body);
+  line-height: var(--gu-leading-body);
+  color: var(--gu-text);
+  background: var(--gu-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.gu *, .gu *::before, .gu *::after { box-sizing: border-box; }
+.gu img, .gu svg, .gu video { max-width: 100%; height: auto; }
+.gu :where(h1, h2, h3, .gu-h1, .gu-h2, .gu-h3, .gu-display) {
+  font-family: var(--gu-font-serif); font-weight: 400; color: var(--gu-heading); margin: 0; text-wrap: balance;
+}
+.gu :where(h4, h5, h6) { font-family: var(--gu-font-sans); font-weight: 600; margin: 0; }
+.gu :where(p, ul, ol, dl, figure) { margin: 0; }
+.gu :where(p) { text-wrap: pretty; }
+.gu-display { font-size: var(--gu-size-display); line-height: var(--gu-leading-display); letter-spacing: var(--gu-tracking-display); }
+.gu :where(h1), .gu-h1 { font-size: var(--gu-size-h1); line-height: 1.1; }
+.gu :where(h2), .gu-h2 { font-size: var(--gu-size-h2); line-height: var(--gu-leading-heading); }
+.gu :where(h3), .gu-h3 { font-size: var(--gu-size-h3); line-height: 1.2; }
+/* The signature: one phrase in italic, on its own line. Forest on light, coral on dark bands */
+.gu :where(h1, h2, h3, .gu-display, .gu-h1, .gu-h2, .gu-h3) em { font-style: italic; color: var(--gu-emphasis); }
+.gu-band :where(h1, h2, h3, .gu-display) em, .gu-panel :where(h1, h2, h3) em { color: var(--gu-coral); }
+.gu-lead { font-size: var(--gu-size-lead); line-height: var(--gu-leading-body); color: var(--gu-text-muted); max-width: 60ch; }
+.gu-muted { color: var(--gu-text-muted); }
+.gu-small { font-size: var(--gu-size-small); }
+.gu-caption { font-size: var(--gu-size-caption); color: var(--gu-text-muted); }
+.gu :where(a) { color: var(--gu-link); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.gu :where(a:hover) { text-decoration-thickness: 2px; }
+.gu :where(strong, b) { font-weight: 600; }
+.gu :where(hr) { border: 0; border-top: 1px solid var(--gu-line); margin: var(--gu-space-6) 0; }
+.gu :where(:focus-visible) { outline: 2px solid var(--gu-focus); outline-offset: 3px; border-radius: 2px; }
+.gu :where(input, select, textarea, button) { font: inherit; color: inherit; }
+.gu :where(button, a, [role="button"], select, summary) { touch-action: manipulation; }
+.gu-num { font-variant-numeric: tabular-nums; }
+
+/* Small label above a heading: "01 / WHAT WE DO" or "GUILD UK / SERVICES" */
+.gu-eyebrow {
+  display: block; font-family: var(--gu-font-sans); font-size: var(--gu-size-eyebrow); font-weight: 600;
+  letter-spacing: var(--gu-tracking-eyebrow); text-transform: uppercase; line-height: 1.7; color: var(--gu-text-muted); margin: 0 0 var(--gu-space-3);
+}
+.gu-band .gu-eyebrow, .gu-panel .gu-eyebrow { color: var(--gu-coral); }
+
+/* ---------- Layout ---------- */
+.gu-section > .gu-wrap { padding-inline: 0; }
+.gu-wrap { width: 100%; max-width: var(--gu-width-content); margin-inline: auto; padding-inline: var(--gu-gutter-desktop); }
+.gu-section { padding-block: var(--gu-space-9); padding-inline: var(--gu-gutter-desktop); }
+.gu-section > * + * { margin-top: var(--gu-space-5); }
+.gu-section-head { display: grid; grid-template-columns: 1fr 2.1fr; gap: var(--gu-space-6); margin-bottom: var(--gu-space-7); }
+.gu-section-head .gu-eyebrow { padding-top: 10px; }
+.gu-section-head p { margin-top: var(--gu-space-4); color: var(--gu-text-muted); max-width: 60ch; }
+.gu-stack { display: grid; gap: var(--gu-space-4); }
+.gu-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gu-space-3); }
+.gu-grid { display: grid; gap: var(--gu-space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.gu-measure { max-width: var(--gu-width-text); }
+/* A dark forest band: white words, coral accent, coral main button */
+.gu-band { background: var(--gu-forest); color: #fff; --gu-heading: #fff; --gu-link: #fff; --gu-text-muted: #C9DCD1; --gu-focus: var(--gu-coral); --gu-line: rgba(255, 255, 255, 0.16); }
+.gu-band--ink { background: var(--gu-ink); }
+.gu-soft { background: var(--gu-surface-soft); }
+@media (max-width: 1024px) { .gu-section { padding-block: 65px; padding-inline: var(--gu-gutter-tablet); } .gu-wrap { padding-inline: var(--gu-gutter-tablet); } .gu-section-head { grid-template-columns: 1fr; gap: var(--gu-space-2); } }
+@media (max-width: 640px) { .gu-section { padding-block: var(--gu-space-7); padding-inline: var(--gu-gutter-phone); } .gu-wrap { padding-inline: var(--gu-gutter-phone); } }
+
+/* ---------- Buttons ---------- */
+.gu-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--gu-space-2);
+  min-height: var(--gu-target-comfortable); padding: 10px 20px; border-radius: var(--gu-radius-sm);
+  border: 1px solid transparent; font-family: var(--gu-font-sans); font-size: 15px; font-weight: 500; line-height: 1.2;
+  text-decoration: none; white-space: nowrap; cursor: pointer; user-select: none;
+  background: var(--gu-action); color: var(--gu-action-text);
+  transition: background-color var(--gu-motion-fast), color var(--gu-motion-fast), border-color var(--gu-motion-fast), transform var(--gu-motion-fast) var(--gu-motion-ease-out);
+}
+.gu-btn:hover { background: var(--gu-action-hover); text-decoration: none; }
+.gu-btn:active { transform: scale(0.98); }
+.gu-btn svg { width: 16px; height: 16px; flex-shrink: 0; transition: transform var(--gu-motion-base) var(--gu-motion-ease-out); }
+.gu-btn:hover svg.gu-arrow { transform: translate(2px, -2px); }
+.gu-btn[disabled], .gu-btn[aria-disabled="true"] { opacity: 0.5; pointer-events: none; }
+.gu-btn--secondary { background: transparent; color: var(--gu-heading); border-color: var(--gu-line-strong); }
+.gu-btn--secondary:hover { background: var(--gu-surface-soft); }
+.gu-btn--ghost { background: transparent; color: var(--gu-heading); }
+.gu-btn--ghost:hover { background: var(--gu-surface-soft); }
+.gu-btn--danger { background: var(--gu-danger); color: #fff; }
+.gu-btn--danger:hover { background: color-mix(in srgb, var(--gu-danger) 88%, #000); }
+.gu-btn--small { min-height: 36px; padding: 6px 14px; font-size: 14px; }
+.gu-btn--large { min-height: 52px; padding: 14px 28px; font-size: 17px; }
+.gu-btn--block { width: 100%; }
+.gu-btn--icon { width: var(--gu-target-comfortable); padding: 0; border-radius: var(--gu-radius-round); background: transparent; color: var(--gu-heading); }
+.gu-btn--icon:hover { background: var(--gu-surface-soft); }
+.gu-btn--ring { border-color: var(--gu-line); }
+/* On a dark band the main button turns coral with ink words */
+.gu-band .gu-btn:not(.gu-btn--secondary):not(.gu-btn--ghost):not(.gu-btn--icon), .gu-panel .gu-btn:not(.gu-btn--secondary):not(.gu-btn--ghost) { background: var(--gu-coral); color: var(--gu-ink); }
+.gu-band .gu-btn:not(.gu-btn--secondary):not(.gu-btn--ghost):not(.gu-btn--icon):hover { background: #F6AA9A; }
+.gu-band .gu-btn--secondary { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+.gu-band .gu-btn--secondary:hover, .gu-band .gu-btn--ghost:hover { background: rgba(255, 255, 255, 0.1); }
+.gu-btn-note { font-size: var(--gu-size-caption); color: var(--gu-text-muted); margin-top: var(--gu-space-2); }
+
+/* A text link that goes somewhere: words and the arrow */
+.gu-link { display: inline-flex; align-items: center; gap: 6px; min-height: var(--gu-target-min); color: var(--gu-link); font-weight: 500; text-decoration: none; }
+.gu-link:hover { text-decoration: underline; }
+.gu-link svg { width: 16px; height: 16px; transition: transform var(--gu-motion-base) var(--gu-motion-ease-out); }
+.gu-link:hover svg { transform: translate(2px, -2px); }
+
+/* ---------- Cards and panels ---------- */
+.gu-card { position: relative; display: grid; align-content: start; gap: var(--gu-space-3); padding: var(--gu-space-5); background: var(--gu-surface); border: 1px solid var(--gu-line); border-radius: var(--gu-radius-md); color: var(--gu-text); }
+.gu-card h3 { font-size: 22px; }
+.gu-card p { color: var(--gu-text-muted); }
+.gu-card-top { display: flex; justify-content: space-between; align-items: center; font-size: var(--gu-size-caption); color: var(--gu-text-muted); }
+/* A whole card that is one link: arrow top right, clickable all over */
+a.gu-card { text-decoration: none; transition: border-color var(--gu-motion-fast), transform var(--gu-motion-base) var(--gu-motion-ease-out); }
+a.gu-card:hover { border-color: var(--gu-heading); }
+a.gu-card:hover .gu-arrow { transform: translate(2px, -2px); }
+a.gu-card .gu-arrow { width: 18px; height: 18px; color: var(--gu-heading); transition: transform var(--gu-motion-base) var(--gu-motion-ease-out); }
+.gu-panel { background: var(--gu-forest); color: #fff; border-radius: var(--gu-radius-lg); padding: clamp(28px, 3.2vw, 52px); display: grid; gap: clamp(18px, 2vw, 28px); box-shadow: var(--gu-shadow-panel); --gu-heading: #fff; --gu-text-muted: #C9DCD1; --gu-focus: var(--gu-coral); }
+.gu-tile { background: var(--gu-surface-soft); border-radius: var(--gu-radius-md); padding: var(--gu-space-5); }
+
+/* Numbered steps, coral discs: what happens next */
+.gu-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: gu-step; }
+.gu-steps > li { counter-increment: gu-step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; padding-top: 14px; border-top: 1px solid var(--gu-line); }
+.gu-steps > li::before { content: counter(gu-step); display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gu-coral); color: var(--gu-ink); font-weight: 700; font-size: 14px; }
+.gu-steps b { display: block; font-weight: 600; }
+.gu-steps p { margin-top: 2px; color: var(--gu-text-muted); }
+
+/* A number that matters: big serif figure, small label */
+.gu-stat { display: grid; gap: 2px; }
+.gu-stat-value { font-family: var(--gu-font-serif); font-size: clamp(34px, 3.4vw, 48px); line-height: 1; color: var(--gu-heading); font-variant-numeric: tabular-nums; }
+.gu-stat-label { font-size: var(--gu-size-caption); color: var(--gu-text-muted); }
+.gu-stat-change { font-size: var(--gu-size-caption); font-weight: 600; }
+
+/* ---------- Forms ---------- */
+.gu-form { display: grid; gap: 22px; max-width: 640px; }
+.gu-field { display: grid; gap: 8px; min-width: 0; font-size: 15px; }
+.gu-field > label, .gu-legend { font-weight: 500; color: var(--gu-text); }
+.gu-optional { font-weight: 400; color: var(--gu-text-muted); }
+.gu-hint { font-size: var(--gu-size-caption); line-height: 1.6; color: var(--gu-text-muted); }
+.gu-input, .gu-select, .gu-textarea {
+  width: 100%; min-height: var(--gu-target-field); padding: 11px 12px; font-size: 16px;
+  background: var(--gu-surface); color: var(--gu-text); border: 1px solid var(--gu-line-strong); border-radius: var(--gu-radius-sm);
+  -webkit-appearance: none; appearance: none;
+}
+.gu-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+.gu-select { padding-right: 40px; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+.gu-input:focus, .gu-select:focus, .gu-textarea:focus { outline: 2px solid var(--gu-focus); outline-offset: 2px; }
+.gu-input::placeholder, .gu-textarea::placeholder { color: var(--gu-text-muted); opacity: 0.8; }
+.gu-check { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start; cursor: pointer; font-weight: 400; }
+.gu-check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--gu-forest); }
+[data-theme="dark"] :is(.gu-check, .gu-choice) input, .dark :is(.gu-check, .gu-choice) input { accent-color: var(--gu-coral); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not(.light) :is(.gu-check, .gu-choice) input { accent-color: var(--gu-coral); } }
+.gu-error { display: none; font-size: var(--gu-size-caption); font-weight: 600; color: var(--gu-danger); }
+.gu-field--bad .gu-input, .gu-field--bad .gu-select, .gu-field--bad .gu-textarea { border: 2px solid var(--gu-danger); }
+.gu-field--bad .gu-error { display: block; }
+.gu-fieldset { display: grid; gap: 22px; min-width: 0; border: 0; margin: 0; padding: 0; }
+.gu-fieldset + .gu-fieldset { border-top: 1px solid var(--gu-line); padding-top: var(--gu-space-5); }
+.gu-legend { font-family: var(--gu-font-serif); font-size: 24px; font-weight: 400; color: var(--gu-heading); padding: 0; margin-bottom: 4px; }
+/* The box at the top of a form that lists what to fix */
+.gu-problems { border-left: 3px solid var(--gu-danger); background: var(--gu-danger-soft); padding: 14px 16px; font-size: 15px; }
+.gu-problems a { color: var(--gu-danger); font-weight: 600; }
+
+/* A choice shown as big tappable rows instead of a dropdown, for phones */
+.gu-choices { display: grid; gap: 8px; border: 0; margin: 0; padding: 0; }
+.gu-choice { background: var(--gu-surface); display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 12px 14px; border: 1px solid var(--gu-line); border-radius: var(--gu-radius-md); cursor: pointer; }
+.gu-choice:has(input:checked) { border-color: var(--gu-heading); background: var(--gu-surface-soft); }
+.gu-choice input { width: 20px; height: 20px; accent-color: var(--gu-forest); margin: 0; }
+
+/* ---------- Status ---------- */
+.gu-badge { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; padding: 2px 10px; border-radius: var(--gu-radius-round); font-size: 13px; font-weight: 600; line-height: 1.3; background: var(--gu-surface-soft); color: var(--gu-heading); white-space: nowrap; }
+.gu-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.gu-badge--plain::before { display: none; }
+.gu-badge--success { background: var(--gu-success-soft); color: var(--gu-success); }
+.gu-badge--warning { background: var(--gu-warning-soft); color: var(--gu-warning); }
+.gu-badge--danger { background: var(--gu-danger-soft); color: var(--gu-danger); }
+.gu-badge--neutral { background: transparent; color: var(--gu-text-muted); border: 1px solid var(--gu-line); }
+/* A reference people can read out on the phone: GUK-2611-XPFUTY */
+.gu-ref { font-family: var(--gu-font-sans); font-weight: 600; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; color: var(--gu-heading); }
+.gu-notice { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 14px 16px; border-radius: var(--gu-radius-md); background: var(--gu-surface-soft); color: var(--gu-text); border-left: 3px solid var(--gu-heading); }
+.gu-notice svg { width: 20px; height: 20px; margin-top: 2px; color: var(--gu-heading); }
+.gu-notice--warning { background: var(--gu-warning-soft); border-left-color: var(--gu-warning); }
+.gu-notice--warning svg { color: var(--gu-warning); }
+.gu-notice--danger { background: var(--gu-danger-soft); border-left-color: var(--gu-danger); }
+.gu-notice--danger svg { color: var(--gu-danger); }
+/* The test-version strip across the top of a site that is not live yet */
+.gu-strip { background: #F2C14E; color: var(--gu-ink); text-align: center; padding: 10px var(--gu-gutter-phone); font-size: 15px; line-height: 1.5; }
+.gu-strip a { color: var(--gu-ink); font-weight: 600; }
+
+/* The stamp: shown when something is finished and signed off */
+.gu-stamp { display: inline-grid; place-items: center; width: 72px; height: 72px; color: var(--gu-heading); }
+.gu-stamp svg { width: 100%; height: 100%; }
+.gu-stamp--play { animation: gu-stamp 0.45s var(--gu-motion-ease-out) both; }
+.gu-done { display: grid; justify-items: start; gap: var(--gu-space-3); padding: var(--gu-space-6); border: 1px solid var(--gu-line); border-radius: var(--gu-radius-md); }
+.gu-done .gu-ref { font-size: 20px; }
+
+/* Toast: short news after an action. Bottom centre on phones, bottom right on computers */
+.gu-toast { position: fixed; z-index: var(--gu-z-toast); left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; align-items: center; gap: 12px; max-width: min(92vw, 420px); padding: 12px 16px; border-radius: var(--gu-radius-md); background: var(--gu-ink); color: #fff; box-shadow: var(--gu-shadow-panel); font-size: 15px; animation: gu-rise var(--gu-motion-base) var(--gu-motion-ease-out) both; }
+.gu-toast button { margin-left: auto; background: none; border: 0; color: var(--gu-coral); font-weight: 600; cursor: pointer; min-height: var(--gu-target-min); }
+@media (min-width: 1024px) { .gu-toast { left: auto; right: 24px; transform: none; } }
+
+/* Empty state: what this is for and the one thing to do next */
+.gu-empty { display: grid; justify-items: center; text-align: center; gap: var(--gu-space-3); padding: var(--gu-space-8) var(--gu-space-5); border: 1px dashed var(--gu-line-strong); border-radius: var(--gu-radius-md); }
+.gu-empty > svg { width: 40px; height: 40px; color: var(--gu-heading); }
+.gu-empty p { color: var(--gu-text-muted); max-width: 44ch; }
+
+/* Loading: a calm block, no spinner where we can avoid one */
+.gu-skeleton { background: linear-gradient(90deg, var(--gu-surface-soft), color-mix(in srgb, var(--gu-surface-soft) 60%, var(--gu-surface)), var(--gu-surface-soft)); background-size: 200% 100%; border-radius: var(--gu-radius-sm); animation: gu-shimmer 1.4s linear infinite; min-height: 1em; }
+
+/* ---------- Tables and lists ---------- */
+.gu-table-wrap { overflow-x: auto; border: 1px solid var(--gu-line); border-radius: var(--gu-radius-md); }
+.gu-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.gu-table th { text-align: left; font-weight: 600; font-size: 13px; color: var(--gu-heading); background: var(--gu-surface-soft); padding: 10px 14px; white-space: nowrap; }
+.gu-table td { padding: 12px 14px; border-top: 1px solid var(--gu-line); vertical-align: top; }
+.gu-table tbody tr:hover { background: color-mix(in srgb, var(--gu-surface-soft) 45%, transparent); }
+.gu-table .gu-num, .gu-table td[data-num] { text-align: right; }
+/* On phones a table becomes a list of cards: put data-label on each td */
+@media (max-width: 640px) {
+  .gu-table--stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .gu-table--stack tr { display: grid; gap: 4px; padding: 12px 14px; border-top: 1px solid var(--gu-line); }
+  .gu-table--stack td { display: flex; justify-content: space-between; gap: 12px; padding: 0; border: 0; }
+  .gu-table--stack td::before { content: attr(data-label); color: var(--gu-text-muted); font-size: 13px; }
+}
+.gu-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--gu-line); }
+.gu-rows > li { border-bottom: 1px solid var(--gu-line); }
+.gu-rows > li > a, .gu-rows > li > .gu-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 12px 0; color: var(--gu-text); text-decoration: none; }
+.gu-rows > li > a:hover { color: var(--gu-heading); }
+.gu-rows .gu-arrow { width: 18px; height: 18px; color: var(--gu-heading); flex-shrink: 0; }
+.gu-dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; }
+.gu-dl dt { color: var(--gu-text-muted); }
+.gu-dl dd { margin: 0; font-weight: 500; }
+
+/* ---------- App shell: header, side menu on computers, tab bar on phones ---------- */
+.gu-skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--gu-action); color: var(--gu-action-text); padding: 10px 14px; border-radius: var(--gu-radius-sm); }
+.gu-skip:focus { top: 12px; }
+.gu-header { position: sticky; top: 0; z-index: var(--gu-z-header); display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 8px var(--gu-gutter-phone); background: color-mix(in srgb, var(--gu-background) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gu-line); }
+.gu-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--gu-heading); text-decoration: none; font-family: var(--gu-font-serif); font-size: 24px; line-height: 1; min-height: var(--gu-target-comfortable); }
+.gu-brand svg, .gu-brand img { width: 34px; height: 34px; }
+.gu-nav { display: flex; align-items: center; gap: 4px; }
+.gu-nav a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 12px; border-radius: var(--gu-radius-sm); color: var(--gu-text); text-decoration: none; font-weight: 500; font-size: 15px; }
+.gu-nav a:hover { background: var(--gu-surface-soft); }
+.gu-nav a[aria-current="page"] { color: var(--gu-heading); box-shadow: inset 0 -2px 0 var(--gu-heading); border-radius: 0; }
+.gu-app { display: grid; min-height: 100dvh; grid-template-columns: 1fr; }
+.gu-app-main { min-width: 0; padding: var(--gu-space-5) var(--gu-gutter-phone) calc(96px + env(safe-area-inset-bottom)); }
+.gu-sidenav { display: none; }
+.gu-tabbar { position: fixed; z-index: var(--gu-z-header); left: 0; right: 0; bottom: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding-bottom: env(safe-area-inset-bottom); background: var(--gu-surface); border-top: 1px solid var(--gu-line); }
+.gu-tabbar a { display: grid; justify-items: center; align-content: center; gap: 3px; min-height: 60px; color: var(--gu-text-muted); text-decoration: none; font-size: 12px; font-weight: 500; }
+.gu-tabbar a svg { width: 22px; height: 22px; }
+.gu-tabbar a[aria-current="page"] { color: var(--gu-heading); font-weight: 600; }
+.gu-tabbar a[aria-current="page"] svg { stroke-width: 2.4; }
+@media (min-width: 1024px) {
+  .gu-app { grid-template-columns: 248px minmax(0, 1fr); }
+  .gu-sidenav { position: sticky; top: 0; height: 100dvh; display: flex; flex-direction: column; gap: 4px; padding: 20px 12px; background: var(--gu-forest); color: #fff; overflow-y: auto; }
+  .gu-sidenav .gu-brand { color: #fff; padding: 0 12px 16px; }
+  .gu-sidenav a:not(.gu-brand) { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: var(--gu-radius-sm); color: #E0F0E7; text-decoration: none; font-weight: 500; font-size: 15px; }
+  .gu-sidenav a:not(.gu-brand):hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+  .gu-sidenav a[aria-current="page"] { background: rgba(255, 255, 255, 0.12); color: #fff; box-shadow: inset 3px 0 0 var(--gu-coral); }
+  .gu-sidenav svg { width: 20px; height: 20px; }
+  .gu-sidenav-foot { margin-top: auto; padding: 12px; font-size: 13px; color: #C9DCD1; }
+  .gu-sidenav :focus-visible { outline-color: var(--gu-coral); }
+  .gu-tabbar { display: none; }
+  .gu-app-main { padding: var(--gu-space-7) clamp(24px, 4vw, 64px); max-width: 1120px; }
+}
+/* Full-screen menu for phones on a public site (the guilduk.com pattern) */
+.gu-menu { position: fixed; inset: 0; z-index: var(--gu-z-menu); display: flex; flex-direction: column; gap: 32px; padding: 24px var(--gu-gutter-phone); background: var(--gu-background); overflow-y: auto; }
+.gu-menu[hidden] { display: none; }
+.gu-menu nav { display: grid; }
+.gu-menu nav a { display: flex; justify-content: space-between; align-items: center; min-height: 64px; border-bottom: 1px solid var(--gu-line); font-family: var(--gu-font-serif); font-size: 30px; color: var(--gu-text); text-decoration: none; }
+.gu-menu nav a[aria-current="page"] { color: var(--gu-heading); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 2px; }
+.gu-footer { padding: var(--gu-space-8) var(--gu-gutter-desktop) var(--gu-space-6); border-top: 1px solid var(--gu-line); display: grid; gap: var(--gu-space-5); font-size: 14px; color: var(--gu-text-muted); }
+.gu-footer a { color: var(--gu-text); }
+.gu-made-by { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gu-text-muted); text-decoration: none; }
+.gu-made-by svg { width: 20px; height: 20px; color: var(--gu-heading); }
+
+/* ---------- Dialog ---------- */
+.gu-dialog { border: 0; padding: 0; border-radius: var(--gu-radius-md); background: var(--gu-surface); color: var(--gu-text); width: min(92vw, 520px); box-shadow: var(--gu-shadow-panel); }
+.gu-dialog::backdrop { background: rgba(14, 23, 18, 0.55); }
+.gu-dialog[open] { animation: gu-rise var(--gu-motion-base) var(--gu-motion-ease-out) both; }
+.gu-dialog-body { display: grid; gap: var(--gu-space-4); padding: var(--gu-space-6); }
+.gu-dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--gu-space-3); }
+@media (max-width: 640px) { .gu-dialog { width: 100vw; max-width: 100vw; margin: auto 0 0; border-radius: var(--gu-radius-lg) var(--gu-radius-lg) 0 0; } .gu-dialog-actions { flex-direction: column-reverse; } .gu-dialog-actions .gu-btn { width: 100%; } }
+
+/* ---------- Motion ---------- */
+@keyframes gu-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes gu-stamp { 0% { opacity: 0; transform: scale(1.25) rotate(-8deg); } 60% { opacity: 1; transform: scale(0.96) rotate(1deg); } 100% { transform: none; } }
+@keyframes gu-shimmer { to { background-position: -200% 0; } }
+.gu-rise { animation: gu-rise var(--gu-motion-reveal) var(--gu-motion-ease-out) both; }
+.gu-rise:nth-child(2) { animation-delay: 90ms; } .gu-rise:nth-child(3) { animation-delay: 180ms; } .gu-rise:nth-child(4) { animation-delay: 270ms; }
+/* Anything that moves on its own for more than five seconds gets this button */
+.gu-pause { position: fixed; z-index: var(--gu-z-overlay); left: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); }
+@media (prefers-reduced-motion: reduce) {
+  .gu *, .gu *::before, .gu *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .gu-skeleton { animation: none; }
+}
+.gu-still *, .gu-still *::before, .gu-still *::after { animation-play-state: paused !important; }
+
+/* ---------- Helpers ---------- */
+.gu-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.gu [hidden] { display: none !important; }
+@media print { .gu-header, .gu-tabbar, .gu-sidenav, .gu-toast, .gu-pause, .gu-menu { display: none !important; } .gu { background: #fff; color: #000; } }

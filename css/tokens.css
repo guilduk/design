@@ -1,0 +1,159 @@
+/* Made by scripts/build.mjs from tokens/tokens.json. Change the tokens, then run `npm run build`. Do not edit by hand. */
+
+/* Brand colours, the same in light and dark */
+:root {
+  --gu-forest: #174131;
+  --gu-forest-deep: #0F3326;
+  --gu-ink: #142019;
+  --gu-coral: #F39380;
+  --gu-sage: #E0F0E7;
+  --gu-moss: #5A635D;
+  --gu-white: #FFFFFF;
+  --gu-chart-1: #174131;
+  --gu-chart-2: #F39380;
+  --gu-chart-3: #5E9C7E;
+  --gu-chart-4: #2F5D8A;
+  --gu-chart-5: #C9A227;
+  --gu-chart-6: #8C5A9E;
+
+  /* Lettering */
+  --gu-font-serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --gu-font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --gu-font-email-serif: Georgia, "Times New Roman", serif;
+  --gu-font-email-sans: Arial, Helvetica, sans-serif;
+  --gu-size-display: clamp(42px, 6.2vw, 92px);
+  --gu-size-h1: clamp(36px, 4.6vw, 58px);
+  --gu-size-h2: clamp(30px, 3.2vw, 43px);
+  --gu-size-h3: clamp(22px, 2vw, 29px);
+  --gu-size-lead: clamp(17px, 1.35vw, 20px);
+  --gu-size-body: 16px;
+  --gu-size-small: 14px;
+  --gu-size-caption: 13px;
+  --gu-size-eyebrow: 12px;
+  --gu-leading-display: 1.05;
+  --gu-leading-heading: 1.13;
+  --gu-leading-body: 1.7;
+  --gu-leading-tight: 1.3;
+  --gu-tracking-display: -0.01em;
+  --gu-tracking-eyebrow: 0.16em;
+
+  /* Space, width and shape */
+  --gu-space-1: 4px;
+  --gu-space-2: 8px;
+  --gu-space-3: 12px;
+  --gu-space-4: 16px;
+  --gu-space-5: 24px;
+  --gu-space-6: 32px;
+  --gu-space-7: 48px;
+  --gu-space-8: 64px;
+  --gu-space-9: 86px;
+  --gu-gutter-phone: 6%;
+  --gu-gutter-tablet: 5%;
+  --gu-gutter-desktop: 7.5%;
+  --gu-width-text: 68ch;
+  --gu-width-content: 1280px;
+  --gu-width-wide: 1800px;
+  --gu-radius-sm: 3px;
+  --gu-radius-md: 6px;
+  --gu-radius-lg: 20px;
+  --gu-radius-round: 999px;
+  --gu-shadow-soft: 0 2px 10px rgba(20, 32, 25, 0.14);
+  --gu-shadow-panel: 0 30px 60px -30px rgba(20, 32, 25, 0.45);
+  --gu-target-min: 24px;
+  --gu-target-comfortable: 44px;
+  --gu-target-field: 46px;
+
+  /* Motion */
+  --gu-motion-fast: 150ms;
+  --gu-motion-base: 250ms;
+  --gu-motion-slow: 600ms;
+  --gu-motion-reveal: 800ms;
+  --gu-motion-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --gu-motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --gu-motion-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --gu-z-header: 40;
+  --gu-z-overlay: 50;
+  --gu-z-menu: 60;
+  --gu-z-toast: 70;
+}
+
+/* Light: the default */
+:root, [data-theme="light"], .light {
+  color-scheme: light;
+  --gu-background: #FFFFFF;
+  --gu-surface: #FFFFFF;
+  --gu-surface-soft: #E0F0E7;
+  --gu-surface-dark: #174131;
+  --gu-text: #142019;
+  --gu-text-muted: #5A635D;
+  --gu-heading: #174131;
+  --gu-emphasis: #174131;
+  --gu-link: #174131;
+  --gu-accent: #F39380;
+  --gu-line: #E1E8E4;
+  --gu-line-strong: #5A635D;
+  --gu-action: #174131;
+  --gu-action-hover: #0F3326;
+  --gu-action-text: #FFFFFF;
+  --gu-focus: #174131;
+  --gu-danger: #B42318;
+  --gu-danger-soft: #FDECEA;
+  --gu-warning: #8A5300;
+  --gu-warning-soft: #FFF4E0;
+  --gu-success: #17603F;
+  --gu-success-soft: #E0F0E7;
+}
+
+/* Dark: follows the device unless the page chooses (data-theme="light" or "dark" on <html>, or the .dark class) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light) {
+    color-scheme: dark;
+    --gu-background: #0E1712;
+    --gu-surface: #142019;
+    --gu-surface-soft: #1C2B23;
+    --gu-surface-dark: #0A110D;
+    --gu-text: #EEF5F1;
+    --gu-text-muted: #A7B5AD;
+    --gu-heading: #FFFFFF;
+    --gu-emphasis: #F39380;
+    --gu-link: #A9DCC0;
+    --gu-accent: #F39380;
+    --gu-line: #2B3D33;
+    --gu-line-strong: #A7B5AD;
+    --gu-action: #F39380;
+    --gu-action-hover: #F6AA9A;
+    --gu-action-text: #142019;
+    --gu-focus: #F39380;
+    --gu-danger: #FF8A80;
+    --gu-danger-soft: #3A1714;
+    --gu-warning: #F5C46B;
+    --gu-warning-soft: #33260C;
+    --gu-success: #8FD6AE;
+    --gu-success-soft: #173326;
+  }
+}
+[data-theme="dark"], .dark {
+  color-scheme: dark;
+  --gu-background: #0E1712;
+  --gu-surface: #142019;
+  --gu-surface-soft: #1C2B23;
+  --gu-surface-dark: #0A110D;
+  --gu-text: #EEF5F1;
+  --gu-text-muted: #A7B5AD;
+  --gu-heading: #FFFFFF;
+  --gu-emphasis: #F39380;
+  --gu-link: #A9DCC0;
+  --gu-accent: #F39380;
+  --gu-line: #2B3D33;
+  --gu-line-strong: #A7B5AD;
+  --gu-action: #F39380;
+  --gu-action-hover: #F6AA9A;
+  --gu-action-text: #142019;
+  --gu-focus: #F39380;
+  --gu-danger: #FF8A80;
+  --gu-danger-soft: #3A1714;
+  --gu-warning: #F5C46B;
+  --gu-warning-soft: #33260C;
+  --gu-success: #8FD6AE;
+  --gu-success-soft: #173326;
+}

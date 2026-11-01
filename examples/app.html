@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guild Design app example</title>
+<link rel="icon" href="../assets/icons/here-app.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/guild.css">
+<link rel="stylesheet" href="demo.css">
+<script src="demo.js" defer></script>
+</head>
+<body class="gu">
+<svg width="0" height="0" class="gu-visually-hidden" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-here" viewBox="0 0 150 150"><path d="M34,12 H116 L138,34 V116 L116,138 H34 L12,116 V34 Z" fill="none" stroke="currentColor" stroke-width="9"/><g transform="translate(75,75) scale(3.6) translate(-12,-12)" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></g></symbol>
+</svg>
+<a class="gu-skip" href="#main">Skip to content</a>
+<div class="gu-app">
+  <nav class="gu-sidenav" aria-label="Main">
+    <a class="gu-brand" href="#main"><svg aria-hidden="true"><use href="#i-here"/></svg>here</a>
+    <a href="#main" aria-current="page"><svg aria-hidden="true"><use href="#i-home"/></svg>Today</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-list"/></svg>Classes</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-chart"/></svg>Reports</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-user"/></svg>Account</a>
+    <p class="gu-sidenav-foot">A Guild UK project</p>
+  </nav>
+  <div>
+    <header class="gu-header">
+      <a class="gu-brand demo-phone-brand" href="#main"><svg aria-hidden="true"><use href="#i-here"/></svg>here</a>
+      <span class="gu-caption">Tuesday 3 November</span>
+      <button type="button" class="gu-btn gu-btn--icon gu-btn--ring" data-theme-toggle aria-label="Switch light or dark"><svg width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
+    </header>
+    <main class="gu-app-main gu-stack" id="main">
+      <div><p class="gu-eyebrow">Today / Tuesday maths</p><h1 class="gu-h2">Take the register.<br><em>Ten seconds.</em></h1></div>
+      <div class="gu-grid demo-stats"><div class="gu-stat"><span class="gu-stat-value">9 of 12</span><span class="gu-stat-label">Here so far</span></div><div class="gu-stat"><span class="gu-stat-value">94%</span><span class="gu-stat-label">This term</span></div><div class="gu-stat"><span class="gu-stat-value">2</span><span class="gu-stat-label">Need a call</span></div></div>
+      <ul class="gu-rows">
+        <li><div class="gu-row"><span>Amara O.</span><span class="gu-badge gu-badge--success">Present</span></div></li>
+        <li><div class="gu-row"><span>Ben T.</span><span class="gu-badge gu-badge--danger">Absent</span></div></li>
+        <li><div class="gu-row"><span>Chloe W.</span><span class="gu-badge gu-badge--warning">Late</span></div></li>
+        <li><a href="#main"><span>See all 12 learners</span><svg class="gu-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+      <div><button class="gu-btn gu-btn--block gu-btn--large" type="button" data-toast>Save the register</button><p class="gu-btn-note">You can change it until midnight.</p></div>
+      <p class="gu-caption">Made-up names, for this example only.</p>
+    </main>
+  </div>
+  <nav class="gu-tabbar" aria-label="Main">
+    <a href="#main" aria-current="page"><svg aria-hidden="true"><use href="#i-home"/></svg>Today</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-list"/></svg>Classes</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-chart"/></svg>Reports</a>
+    <a href="#main"><svg aria-hidden="true"><use href="#i-user"/></svg>Account</a>
+  </nav>
+</div>
+<div class="gu-toast" role="status" hidden data-toast-box>Saved. <button type="button" data-toast-close>Undo</button></div>
+</body>
+</html>

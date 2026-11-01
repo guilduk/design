@@ -1,0 +1,101 @@
+/* Made by scripts/build.mjs from tokens/tokens.json. Change the tokens, then run `npm run build`. Do not edit by hand. */
+/* For Next.js projects using shadcn/ui and Tailwind: put this in app/globals.css after the @tailwind lines,
+   and use tailwind/preset.cjs in tailwind.config. */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 145 23% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 145 23% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 23% 10%;
+    --primary: 157 48% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 146 35% 91%;
+    --secondary-foreground: 157 48% 17%;
+    --muted: 146 35% 91%;
+    --muted-foreground: 140 5% 37%;
+    --accent: 146 35% 91%;
+    --accent-foreground: 145 23% 10%;
+    --destructive: 4 76% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 146 13% 90%;
+    --input: 140 5% 37%;
+    --ring: 157 48% 17%;
+    --success: 153 61% 23%;
+    --warning: 36 100% 27%;
+    --coral: 10 83% 73%;
+    --forest: 157 48% 17%;
+    --sage: 146 35% 91%;
+    --chart-1: 157 48% 17%;
+    --chart-2: 10 83% 73%;
+    --chart-3: 151 25% 49%;
+    --chart-4: 210 49% 36%;
+    --chart-5: 46 68% 47%;
+    --radius: 6px;
+  }
+  .dark {
+    --background: 147 24% 7%;
+    --foreground: 146 26% 95%;
+    --card: 145 23% 10%;
+    --card-foreground: 146 26% 95%;
+    --popover: 145 23% 10%;
+    --popover-foreground: 146 26% 95%;
+    --primary: 10 83% 73%;
+    --primary-foreground: 145 23% 10%;
+    --secondary: 148 21% 14%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 148 21% 14%;
+    --muted-foreground: 146 9% 68%;
+    --accent: 148 21% 14%;
+    --accent-foreground: 146 26% 95%;
+    --destructive: 5 100% 75%;
+    --destructive-foreground: 145 23% 10%;
+    --border: 147 17% 20%;
+    --input: 146 9% 68%;
+    --ring: 10 83% 73%;
+    --success: 146 46% 70%;
+    --warning: 39 87% 69%;
+    --coral: 10 83% 73%;
+    --forest: 157 48% 17%;
+    --sage: 146 35% 91%;
+    --chart-1: 157 48% 17%;
+    --chart-2: 10 83% 73%;
+    --chart-3: 151 25% 49%;
+    --chart-4: 210 49% 36%;
+    --chart-5: 46 68% 47%;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --background: 147 24% 7%;
+      --foreground: 146 26% 95%;
+      --card: 145 23% 10%;
+      --card-foreground: 146 26% 95%;
+      --popover: 145 23% 10%;
+      --popover-foreground: 146 26% 95%;
+      --primary: 10 83% 73%;
+      --primary-foreground: 145 23% 10%;
+      --secondary: 148 21% 14%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 148 21% 14%;
+      --muted-foreground: 146 9% 68%;
+      --accent: 148 21% 14%;
+      --accent-foreground: 146 26% 95%;
+      --destructive: 5 100% 75%;
+      --destructive-foreground: 145 23% 10%;
+      --border: 147 17% 20%;
+      --input: 146 9% 68%;
+      --ring: 10 83% 73%;
+      --success: 146 46% 70%;
+      --warning: 39 87% 69%;
+      --coral: 10 83% 73%;
+      --forest: 157 48% 17%;
+      --sage: 146 35% 91%;
+      --chart-1: 157 48% 17%;
+      --chart-2: 10 83% 73%;
+      --chart-3: 151 25% 49%;
+      --chart-4: 210 49% 36%;
+      --chart-5: 46 68% 47%;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{subject}}</title>
+<!-- Guild Design email. Tables and inline styles, because email apps ignore most CSS.
+     Fill the {{gaps}}. Keep one button. Test in Gmail, Outlook and Apple Mail before sending to anyone. -->
+<style>
+  @media (max-width: 480px) {
+    .gu-pad { padding: 24px 20px !important; }
+    .gu-btn a { display: block !important; }
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#E0F0E7;">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{preview line, about 90 characters}}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E0F0E7;">
+  <tr><td align="center" style="padding:32px 12px;">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
+      <tr><td style="padding:0 0 20px;">
+        <img src="{{logo_url}}" width="200" alt="{{product name}}" style="display:block;width:200px;max-width:60%;height:auto;border:0;">
+      </td></tr>
+      <tr><td class="gu-pad" style="background:#FFFFFF;border-top:3px solid #F39380;padding:36px 40px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;color:#142019;">
+        <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:28px;line-height:1.2;color:#174131;">{{heading}}<br><em>{{the accent phrase}}</em></h1>
+        <p style="margin:0 0 16px;">Hello {{first name}},</p>
+        <p style="margin:0 0 16px;">{{one or two short paragraphs, one point each}}</p>
+        <p style="margin:0 0 24px;">Your reference is <strong style="letter-spacing:.04em;color:#174131;">{{REF-0000-XXXX}}</strong>.</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="gu-btn"><tr>
+          <td style="background:#174131;border-radius:3px;">
+            <a href="{{button link}}" style="display:inline-block;padding:13px 24px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;line-height:18px;color:#FFFFFF;text-decoration:none;">{{Button words, a verb}} &#8599;</a>
+          </td>
+        </tr></table>
+        <p style="margin:12px 0 0;font-size:13px;line-height:1.6;color:#5A635D;">Button not working? Copy this link: <a href="{{button link}}" style="color:#174131;word-break:break-all;">{{button link}}</a></p>
+        <p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #E1E8E4;">{{sign-off name}}<br><span style="color:#5A635D;">{{role}}, {{organisation}}</span></p>
+      </td></tr>
+      <tr><td style="padding:20px 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.7;color:#5A635D;">
+        You are getting this because {{reason}}. <a href="{{stop link}}" style="color:#5A635D;">Stop these emails</a>.<br>
+        {{organisation legal name and address}}
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>

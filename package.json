@@ -1,0 +1,21 @@
+{
+  "name": "@guilduk/design",
+  "version": "1.0.0",
+  "description": "Guild Design: the colours, lettering and parts of every Guild UK product.",
+  "license": "MIT",
+  "author": "Guild UK Systems Limited (https://guilduk.com)",
+  "homepage": "https://github.com/guilduk/design",
+  "type": "module",
+  "files": ["tokens", "css", "fonts", "tailwind", "assets", "email", "scripts", "docs", "DESIGN.md", "AGENTS.md", "BRAND.md"],
+  "exports": {
+    "./tokens.json": "./tokens/tokens.json",
+    "./css/*": "./css/*",
+    "./tailwind/preset.cjs": "./tailwind/preset.cjs",
+    "./assets/*": "./assets/*"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/check-contrast.mjs && node scripts/test-kit.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

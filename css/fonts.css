@@ -1,0 +1,9 @@
+/* DM Serif Display and DM Sans, served from your own site (never from Google), so no visitor data leaves it.
+   Copy the fonts folder next to this file. Licences: fonts/OFL-DM-Sans.txt and fonts/OFL-DM-Serif-Display.txt.
+   Next.js projects use next/font instead: see docs/nextjs.md. */
+@font-face { font-family: "DM Serif Display"; src: url("../fonts/dm-serif-display-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Serif Display"; src: url("../fonts/dm-serif-display-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("../fonts/dm-sans-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
