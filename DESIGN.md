@@ -249,6 +249,8 @@ Email apps ignore most styling, so emails are tables with styles written into ea
 - **The footer:** deep forest, who sent it, why they got it, how to stop, and the organisation's details.
 - **Light and dark:** the inline colours are the light theme. A style block switches to the dark tokens (`color.dark` in tokens.json: page `#0E1712`, letter `#142019`, soft panel `#1C2B23`, text `#EEF5F1`, muted `#A7B5AD`, headings white, links `#A9DCC0`) in Apple Mail, the Outlook apps and Outlook.com. Never pick dark colours by eye: use the tokens, so email, web and documents stay one palette.
 
+- **The preview line** (the grey text an inbox shows under the subject) is hidden with `display:none` only. Never white text, a 1 px font or filler characters: spam filters score that as hidden text.
+
 A working starting point is in [`email/template.html`](email/template.html).
 
 ---

@@ -4,6 +4,7 @@
 
 - Email dark mode: the main button stays forest with white words (a thin light-green edge in dark), because the Outlook phone apps recolour emails and turned the coral button brick red.
 - Email pictures: the logo is white on a see-through background, and the signature mark sits on its own forest tile, so no baked-in box shows when a mail app recolours the email.
+- Email preview line: hidden with `display:none` only. White 1px text scored as invisible text in SpamAssassin (mail-tester, 2 November 2026).
 
 ## 1.1.0, 2 November 2026
 
