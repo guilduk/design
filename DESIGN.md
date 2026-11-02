@@ -50,7 +50,7 @@ Forest does most of the work. Coral is used sparingly, one accent at a time. Whi
 | Forest deep | `#0F3326` | Button hover, pressed states |
 | Ink | `#142019` | Body text; the darkest backgrounds |
 | Coral | `#F39380` | The italic accent on dark, the main button on dark, thin lines, step numbers |
-| Sage | `#E0F0E7` | Soft panels, table headers, selected rows, email backgrounds |
+| Sage | `#E0F0E7` | Soft panels, table headers, selected rows, the reference box in emails |
 | Moss | `#5A635D` | Quieter text: hints, dates, captions |
 | White | `#FFFFFF` | Page backgrounds; words and the logo on forest or ink |
 
@@ -240,13 +240,14 @@ Before anything ships:
 
 ## 11. Email
 
-Email apps ignore most styling, so emails are tables with styles written into each tag.
+Email apps ignore most styling, so emails are tables with styles written into each tag. Every product's emails use the same layout as guilduk.com's own.
 
-- Background sage. Logo top left, 200 px wide, as an image.
-- A white card with a thin coral line along the top. Heading in Georgia, forest. Text in Arial, ink, 16 px, short paragraphs.
-- One forest button with white words, at least 44 px tall, with the full link written underneath for people whose email blocks buttons.
-- Footer in moss: who sent it, why they got it, how to stop, and the organisation's details.
-- Pure white or sage only: no background pictures, no dark-only designs.
+- **The forest band first:** the logo white on forest (a PNG with the forest behind it, 180 px wide), the heading in Georgia, white, and a short coral rule under it. Because the logo sits on the forest, it looks the same in light mode, dark mode and Gmail's own colour inversion.
+- **The letter:** white, text in Arial, ink, 16 px, short paragraphs. A reference sits in a sage box with a coral edge. Sub-headings in Georgia, forest.
+- **One button:** forest with white words in light; coral with ink words in dark, the same rule as dark bands on the web. At least 44 px tall, with the full link written underneath for people whose email blocks buttons.
+- **The signature:** a thin coral line, the mark, the person's name in Georgia, their role and email.
+- **The footer:** deep forest, who sent it, why they got it, how to stop, and the organisation's details.
+- **Light and dark:** the inline colours are the light theme. A style block switches to the dark tokens (`color.dark` in tokens.json: page `#0E1712`, letter `#142019`, soft panel `#1C2B23`, text `#EEF5F1`, muted `#A7B5AD`, headings white, links `#A9DCC0`) in Apple Mail, the Outlook apps and Outlook.com. Never pick dark colours by eye: use the tokens, so email, web and documents stay one palette.
 
 A working starting point is in [`email/template.html`](email/template.html).
 

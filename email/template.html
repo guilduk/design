@@ -4,45 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="x-apple-disable-message-reformatting">
-<meta name="color-scheme" content="light">
-<meta name="supported-color-schemes" content="light">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>{{subject}}</title>
-<!-- Guild Design email. Tables and inline styles, because email apps ignore most CSS.
-     Fill the {{gaps}}. Keep one button. Test in Gmail, Outlook and Apple Mail before sending to anyone. -->
+<!-- Guild Design email: the same layout as guilduk.com's own emails. Tables and inline styles, because email apps ignore
+     most CSS. The inline colours are the light theme; the style block below switches to the dark tokens (tokens.json,
+     color.dark) where the app supports it. The logo sits white on the forest band, so it looks the same in light, dark
+     and Gmail's own colour inversion. Fill the {{gaps}}. Keep one button. Test in Gmail, Outlook and Apple Mail, in light and dark. -->
 <style>
-  @media (max-width: 480px) {
-    .gu-pad { padding: 24px 20px !important; }
-    .gu-btn a { display: block !important; }
+  @media only screen and (max-width: 480px) {
+    .gu-pad { padding-left: 20px !important; padding-right: 20px !important; }
+    .gu-h1 { font-size: 26px !important; line-height: 32px !important; }
+    .gu-btn { width: 100% !important; }
+    .gu-btn a { display: block !important; text-align: center !important; }
   }
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+  @media (prefers-color-scheme: dark) {
+    .gu-page { background-color: #0E1712 !important; }
+    .gu-card { border-color: #2B3D33 !important; }
+    .gu-body { background-color: #142019 !important; }
+    .gu-t, .gu-strong { color: #EEF5F1 !important; }
+    .gu-t a { color: #A9DCC0 !important; }
+    .gu-h2 { color: #FFFFFF !important; }
+    .gu-muted { color: #A7B5AD !important; }
+    .gu-box { background-color: #1C2B23 !important; }
+    .gu-line { background-color: #2B3D33 !important; }
+    .gu-btn td { background-color: #F39380 !important; }
+    .gu-btn a { color: #142019 !important; }
+  }
+  [data-ogsb] .gu-page { background-color: #0E1712 !important; }
+  [data-ogsb] .gu-body { background-color: #142019 !important; }
+  [data-ogsb] .gu-box { background-color: #1C2B23 !important; }
+  [data-ogsb] .gu-btn td { background-color: #F39380 !important; }
+  [data-ogsc] .gu-t, [data-ogsc] .gu-strong { color: #EEF5F1 !important; }
+  [data-ogsc] .gu-h2 { color: #FFFFFF !important; }
+  [data-ogsc] .gu-t a { color: #A9DCC0 !important; }
+  [data-ogsc] .gu-muted { color: #A7B5AD !important; }
+  [data-ogsc] .gu-btn a { color: #142019 !important; }
 </style>
 </head>
-<body style="margin:0;padding:0;background:#E0F0E7;">
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{preview line, about 90 characters}}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E0F0E7;">
-  <tr><td align="center" style="padding:32px 12px;">
-    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
-      <tr><td style="padding:0 0 20px;">
-        <img src="{{logo_url}}" width="200" alt="{{product name}}" style="display:block;width:200px;max-width:60%;height:auto;border:0;">
-      </td></tr>
-      <tr><td class="gu-pad" style="background:#FFFFFF;border-top:3px solid #F39380;padding:36px 40px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;color:#142019;">
-        <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:28px;line-height:1.2;color:#174131;">{{heading}}<br><em>{{the accent phrase}}</em></h1>
-        <p style="margin:0 0 16px;">Hello {{first name}},</p>
-        <p style="margin:0 0 16px;">{{one or two short paragraphs, one point each}}</p>
-        <p style="margin:0 0 24px;">Your reference is <strong style="letter-spacing:.04em;color:#174131;">{{REF-0000-XXXX}}</strong>.</p>
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="gu-btn"><tr>
-          <td style="background:#174131;border-radius:3px;">
-            <a href="{{button link}}" style="display:inline-block;padding:13px 24px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;line-height:18px;color:#FFFFFF;text-decoration:none;">{{Button words, a verb}} &#8599;</a>
-          </td>
-        </tr></table>
-        <p style="margin:12px 0 0;font-size:13px;line-height:1.6;color:#5A635D;">Button not working? Copy this link: <a href="{{button link}}" style="color:#174131;word-break:break-all;">{{button link}}</a></p>
-        <p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #E1E8E4;">{{sign-off name}}<br><span style="color:#5A635D;">{{role}}, {{organisation}}</span></p>
-      </td></tr>
-      <tr><td style="padding:20px 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.7;color:#5A635D;">
-        You are getting this because {{reason}}. <a href="{{stop link}}" style="color:#5A635D;">Stop these emails</a>.<br>
-        {{organisation legal name and address}}
-      </td></tr>
-    </table>
-  </td></tr>
-</table>
+<body class="gu-page" style="margin:0;padding:0;background-color:#FFFFFF;" bgcolor="#FFFFFF">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#FFFFFF;">{{preview line, about 90 characters}}</div>
+<table class="gu-page" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;"><tr><td align="center" style="padding:24px 12px 32px 12px;">
+<table class="gu-card" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;border:1px solid #D5DBD7;">
+
+<!-- The forest band: logo (white on forest, as a PNG with the forest behind it), heading, coral rule -->
+<tr><td class="gu-pad" bgcolor="#174131" style="background-color:#174131;padding:26px 36px 36px 36px;">
+<a href="{{website}}" style="text-decoration:none;"><img src="{{logo_on_forest_png}}" width="180" alt="{{product name}}" style="display:block;width:180px;height:auto;border:0;font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:bold;color:#FFFFFF;"></a>
+<h1 class="gu-h1" style="margin:30px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:38px;font-weight:bold;color:#FFFFFF;">{{heading}}</h1>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:18px 0 0 0;"><tr><td width="44" height="3" bgcolor="#F39380" style="width:44px;height:3px;line-height:3px;font-size:3px;background-color:#F39380;">&nbsp;</td></tr></table>
+</td></tr>
+
+<!-- The letter -->
+<tr><td class="gu-pad gu-body" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:36px 36px 34px 36px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px 0;"><tr><td class="gu-box" bgcolor="#E0F0E7" style="background-color:#E0F0E7;border-left:3px solid #F39380;padding:14px 18px;"><p class="gu-muted" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;letter-spacing:2px;color:#5A635D;">YOUR REFERENCE</p><p class="gu-strong" style="margin:3px 0 0 0;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:26px;font-weight:bold;letter-spacing:2px;color:#174131;">{{REF-0000-XXXX}}</p></td></tr></table>
+<p class="gu-t" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#142019;">Hello {{first name}},</p>
+<p class="gu-t" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#142019;">{{one or two short paragraphs, one point each}}</p>
+<p class="gu-h2" style="margin:24px 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;font-weight:bold;color:#174131;">{{a sub-heading, if needed}}</p>
+<p class="gu-t" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#142019;">{{more, if needed}}</p>
+<table class="gu-btn" role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 26px 0;"><tr><td bgcolor="#174131" style="background-color:#174131;"><a href="{{button link}}" style="display:inline-block;padding:15px 28px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#FFFFFF;text-decoration:none;">{{button words}}&nbsp;&nbsp;&rarr;</a></td></tr></table>
+<p class="gu-t gu-muted" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#5A635D;">Button not working? Copy this link: <a href="{{button link}}" style="color:#174131;word-break:break-all;">{{button link}}</a></p>
+
+<!-- The signature: a coral line, the mark, the person -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:30px 0 0 0;"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background-color:#F39380;">&nbsp;</td></tr></table>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0 0;"><tr><td valign="top" style="padding:2px 16px 0 0;"><img src="{{mark_png on white, 56 px}}" width="56" height="56" alt="" style="display:block;width:56px;height:56px;border:0;border-radius:6px;"></td>
+<td class="gu-t" valign="top" style="border-left:1px solid #D5DBD7;padding:0 0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#142019;"><span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:23px;font-weight:bold;">{{sign-off name}}</span><br><span class="gu-muted" style="color:#5A635D;">{{role}}, {{organisation}}</span><br><a href="mailto:{{email}}" style="color:#142019;text-decoration:none;">{{email}}</a></td></tr></table>
+</td></tr>
+
+<!-- The footer: deep forest, who sent it, why, how to stop -->
+<tr><td class="gu-pad" bgcolor="#0F2E22" style="background-color:#0F2E22;padding:24px 36px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#C9DCD1;">
+<p style="margin:0 0 8px 0;">{{organisation's legal name and details}}</p>
+<p style="margin:0 0 8px 0;"><a href="{{privacy link}}" style="color:#FFFFFF;text-decoration:underline;">Privacy notice</a>&nbsp;&nbsp;<span style="color:#F39380;">|</span>&nbsp;&nbsp;<a href="{{website}}" style="color:#FFFFFF;text-decoration:underline;">{{website, short}}</a></p>
+<p style="margin:0;">{{why they are getting this email, and how to stop}}</p>
+</td></tr>
+</table></td></tr></table>
 </body>
 </html>
