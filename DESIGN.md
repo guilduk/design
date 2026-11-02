@@ -242,10 +242,10 @@ Before anything ships:
 
 Email apps ignore most styling, so emails are tables with styles written into each tag. Every product's emails use the same layout as guilduk.com's own.
 
-- **The forest band first:** the logo white on forest (a PNG with the forest behind it, 180 px wide), the heading in Georgia, white, and a short coral rule under it. Because the logo sits on the forest, it looks the same in light mode, dark mode and Gmail's own colour inversion.
+- **The forest band first:** the logo in white on a see-through background (a PNG, 180 px wide), the heading in Georgia, white, and a short coral rule under it. Never bake the forest into the logo picture: some mail apps recolour the band in dark mode, and a baked-in box then shows.
 - **The letter:** white, text in Arial, ink, 16 px, short paragraphs. A reference sits in a sage box with a coral edge. Sub-headings in Georgia, forest.
-- **One button:** forest with white words in light; coral with ink words in dark, the same rule as dark bands on the web. At least 44 px tall, with the full link written underneath for people whose email blocks buttons.
-- **The signature:** a thin coral line, the mark, the person's name in Georgia, their role and email.
+- **One button:** forest with white words, in light and in dark (in dark it gets a thin light-green edge, `#A9DCC0`). This is the one place email differs from the web: the Outlook phone apps recolour emails themselves and turn a coral button brick red, while they leave dark colours almost alone (tested 2 November 2026). At least 44 px tall, with the full link written underneath for people whose email blocks buttons.
+- **The signature:** a thin coral line, the mark (white on its own forest tile with 8 px corners, so it never sits on a white square in dark mode), the person's name in Georgia, their role and email.
 - **The footer:** deep forest, who sent it, why they got it, how to stop, and the organisation's details.
 - **Light and dark:** the inline colours are the light theme. A style block switches to the dark tokens (`color.dark` in tokens.json: page `#0E1712`, letter `#142019`, soft panel `#1C2B23`, text `#EEF5F1`, muted `#A7B5AD`, headings white, links `#A9DCC0`) in Apple Mail, the Outlook apps and Outlook.com. Never pick dark colours by eye: use the tokens, so email, web and documents stay one palette.
 
