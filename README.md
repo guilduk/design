@@ -1,6 +1,6 @@
 # Guild Design
 
-The design system behind [guilduk.com](https://guilduk.com) and every Guild UK product: forest and coral, DM Serif Display and DM Sans, the stamp frame, and parts that work on a phone first.
+The design system behind [guilduk.com](https://guilduk.com) and every Guild UK product: Skeleton v2: forest, DM Sans, colour fields, the stamp on finished work, real photos of people of every skin colour, and parts that work on a phone first.
 
 **Read [DESIGN.md](DESIGN.md)** for the rules. **Open [examples/index.html](examples/index.html)** to see every part, and [examples/app.html](examples/app.html) for an app with a phone tab bar and a computer side menu.
 
@@ -11,7 +11,7 @@ The design system behind [guilduk.com](https://guilduk.com) and every Guild UK p
 | `tokens/tokens.json` | Every colour, size, space and timing. The one source. |
 | `css/tokens.css` | The tokens as CSS variables, light and dark. Made from the JSON. |
 | `css/guild.css` | Base styles and parts: buttons, forms, cards, badges, tables, app shell, dialogs, toasts, the stamp. |
-| `css/fonts.css`, `fonts/` | DM Serif Display and DM Sans to serve from your own site, with their licences. |
+| `css/fonts.css`, `fonts/` | DM Sans (and DM Serif Display, used only in the logo lettering) to serve from your own site, with their licences. |
 | `css/shadcn.css`, `tailwind/preset.cjs` | The same values for Next.js projects using Tailwind and shadcn/ui. |
 | `assets/brand/` | The Guild UK logo and crown stamp (see [BRAND.md](BRAND.md) before using them). |
 | `assets/icons/` | Product icons: the stamp frame with each product's symbol. |
@@ -31,8 +31,7 @@ Copy `css/` and `fonts/` into your site, then:
 <link rel="stylesheet" href="/css/tokens.css">
 <link rel="stylesheet" href="/css/guild.css">
 <body class="gu">
-  <p class="gu-eyebrow">01 / Getting started</p>
-  <h1>Good technology.<br><em>Real people.</em></h1>
+  <h1>Good technology, done properly.</h1>
   <a class="gu-btn" href="/start/">Let’s talk</a>
 </body>
 ```
