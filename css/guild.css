@@ -17,7 +17,7 @@
 .gu *, .gu *::before, .gu *::after { box-sizing: border-box; }
 .gu img, .gu svg, .gu video { max-width: 100%; height: auto; }
 .gu :where(h1, h2, h3, .gu-h1, .gu-h2, .gu-h3, .gu-display) {
-  font-family: var(--gu-font-serif); font-weight: 400; color: var(--gu-heading); margin: 0; text-wrap: balance;
+  font-family: var(--gu-font-sans); font-weight: 500; letter-spacing: -0.03em; color: var(--gu-heading); margin: 0; text-wrap: balance;
 }
 .gu :where(h4, h5, h6) { font-family: var(--gu-font-sans); font-weight: 600; margin: 0; }
 .gu :where(p, ul, ol, dl, figure) { margin: 0; }
@@ -27,8 +27,9 @@
 .gu :where(h2), .gu-h2 { font-size: var(--gu-size-h2); line-height: var(--gu-leading-heading); }
 .gu :where(h3), .gu-h3 { font-size: var(--gu-size-h3); line-height: 1.2; }
 /* The signature: one phrase in italic, on its own line. Forest on light, coral on dark bands */
-.gu :where(h1, h2, h3, .gu-display, .gu-h1, .gu-h2, .gu-h3) em { font-style: italic; color: var(--gu-emphasis); }
-.gu-band :where(h1, h2, h3, .gu-display) em, .gu-panel :where(h1, h2, h3) em { color: var(--gu-coral); }
+/* Skeleton v2: no styled accent word in a heading */
+.gu :where(h1, h2, h3, .gu-display, .gu-h1, .gu-h2, .gu-h3) em { font-style: normal; color: inherit; }
+.gu-band :where(h1, h2, h3, .gu-display) em, .gu-panel :where(h1, h2, h3) em { color: inherit; }
 .gu-lead { font-size: var(--gu-size-lead); line-height: var(--gu-leading-body); color: var(--gu-text-muted); max-width: 60ch; }
 .gu-muted { color: var(--gu-text-muted); }
 .gu-small { font-size: var(--gu-size-small); }
@@ -299,3 +300,11 @@ a.gu-card .gu-arrow { width: 18px; height: 18px; color: var(--gu-heading); trans
 .gu-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .gu [hidden] { display: none !important; }
 @media print { .gu-header, .gu-tabbar, .gu-sidenav, .gu-toast, .gu-pause, .gu-menu { display: none !important; } .gu { background: #fff; color: #000; } }
+
+/* ---------- Skeleton v2 (4 November 2026) ----------
+   Retired v1 details render nothing so older markup does not show them:
+   the small label above a heading and the arrow. Remove them from markup when a page is next touched. */
+.gu-eyebrow { display: none; }
+.gu-arrow, svg.gu-arrow { display: none; }
+.gu-stat-value, .gu-legend, .gu-brand, .gu-menu nav a { font-family: var(--gu-font-sans); font-weight: 500; letter-spacing: -0.02em; }
+.gu-btn { border-radius: 2px; }

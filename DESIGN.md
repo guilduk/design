@@ -24,19 +24,34 @@ Seven principles, in order of importance:
 
 ---
 
-## 2. The signature: what makes it ours
+## 2. The signature: what makes it ours (Skeleton v2, 4 November 2026)
 
-These seven details carry the brand. Any product using at least five of them will feel like Guild UK.
+Version 1 of this kit (30 October to 3 November 2026) used an italic second line in headings, a small capital label above each section and an arrow on every link. By November 2026 those exact details were what every AI site builder produced, and people read them as generated. **Skeleton v2 retires them.** The structure stays; the life comes from scale, colour fields, real photographs and one idea that is only ours.
 
 | Detail | How | Where |
 |---|---|---|
-| **The two-line heading** | DM Serif Display. First line plain, second line an italic phrase: "Take the register. *Ten seconds.*" | Page and section openings |
-| **The italic accent** | Forest on light, coral on dark. One per heading, never more. | Headings only |
-| **The label above** | Small capitals with spacing: `01 / WHAT WE DO`, or a trail: `GUILD UK / SERVICES`, `TODAY / TUESDAY MATHS` | Above every section heading |
-| **The arrow** | ↗ (Lucide `arrow-up-right`) on every link or button that takes you somewhere. It nudges up and right on hover. | Buttons, link cards, rows |
-| **The stamp frame** | The octagonal frame from the logo, around a symbol. The crown for Guild UK, the product's own symbol for each product. | Logo, app icon, the "done" moment |
-| **The forest band** | A full-width forest area with white words, a coral accent and a coral main button. | Openings, closing calls to action, the side menu |
+| **The plain, large heading** | DM Sans 500, tight tracking (-0.03em), about five words, two lines at most. One face and one colour. | Page and section openings |
+| **Colour fields** | Sections change field colour (white, soft green, forest) instead of being divided by lines. Filled panels, not outlined boxes. | Every page |
+| **The stamp** | The octagonal frame from the logo with a coral tick, shown only when something is finished: confirmed, approved, handed over. | The "done" moment, app icon, logo |
+| **The forest band** | A full-width forest area with white words and a white or forest main button. | Openings, closing calls to action, the side menu |
+| **Real people** | Real photographs in warm natural light. Wherever people appear, a mix of skin colours, ages and backgrounds. | Openings, stories, cards |
+| **One live thing** | On a selling page, one thing the visitor can do with real content (on guilduk.com, the fixed-price panel). | Selling pages |
 | **The reference** | Every saved thing gets a short reference people can read out: `GUK-2611-XPFUTY`, `REG-2611-K4PQ`. | Confirmations, emails, receipts |
+
+### Never (the tells)
+
+1. A small label above a heading, pill badges, tiny spaced-out capitals.
+2. Decorative numbering 01 / 02 / 03 (a real ordered list only when order matters).
+3. A styled word in a heading: italic, a second colour, underline.
+4. Arrows on buttons and links, corner arrow badges on cards.
+5. Thin rules everywhere and 1px outlined boxes (lines only in tables, form fields and print marks).
+6. Gradients, glows, glass, shadows on things at rest.
+7. Rows of identical icon cards, bento tiles.
+8. Cream ground with a coral or terracotta accent.
+9. Fade-up on every section, hover lift on every card, bounce.
+10. Invented proof.
+
+The CSS keeps the old class names working so products built on v1 do not break, but `gu-eyebrow` and `gu-arrow` now render nothing, and an `em` in a heading renders plainly. Remove them from markup when you next touch a page.
 
 ---
 
@@ -49,7 +64,7 @@ Forest does most of the work. Coral is used sparingly, one accent at a time. Whi
 | Forest | `#174131` | Headings, buttons, links, dark bands, the side menu, the logo on light |
 | Forest deep | `#0F3326` | Button hover, pressed states |
 | Ink | `#142019` | Body text; the darkest backgrounds |
-| Coral | `#F39380` | The italic accent on dark, the main button on dark, thin lines, step numbers |
+| Coral | `#F39380` | Rare: the tick in the stamp at a completion moment, and the focus ring on forest. Never a button on white, never a background field |
 | Sage | `#E0F0E7` | Soft panels, table headers, selected rows, the reference box in emails |
 | Moss | `#5A635D` | Quieter text: hints, dates, captions |
 | White | `#FFFFFF` | Page backgrounds; words and the logo on forest or ink |
@@ -60,7 +75,7 @@ Forest does most of the work. Coral is used sparingly, one accent at a time. Whi
 
 ### Rules that keep it readable
 
-- **Coral is never words on white.** It is 2.3 to 1. Use it for large italic headings on dark, lines, shapes and the main button on dark (with ink words, 7.4 to 1).
+- **Coral is never words on white.** It is 2.3 to 1. In v2 it is the stamp's tick and the focus ring on forest, nothing more.
 - **Words on forest are white.** Words on sage are ink or forest.
 - **Never recolour the logo coral.** Forest on light, white on dark, nothing else.
 - Every pairing used by the kit is checked by `npm test` ([`scripts/check-contrast.mjs`](scripts/check-contrast.mjs)). If you add a colour, add its pairings there.
@@ -69,7 +84,7 @@ Forest does most of the work. Coral is used sparingly, one accent at a time. Whi
 
 Light is the default. Dark follows the device unless the person chooses (put `data-theme="dark"` or `"light"` on `<html>`, or the `.dark` class for shadcn). Remember their choice on that device only.
 
-In dark mode the page is a deep green-black (`#0E1712`), panels are ink (`#142019`), words are near-white, the italic accent and the main button turn **coral with ink words**, and links turn a soft green (`#A9DCC0`). The forest band stays forest. Every pairing passes AA in both modes.
+In dark mode the page is a deep green-black (`#0E1712`), panels are ink (`#142019`), words are near-white, the main button turns **white with forest words** on forest and forest on ink panels, and links turn a soft green (`#A9DCC0`). The forest band stays forest. Every pairing passes AA in both modes.
 
 ---
 
@@ -77,23 +92,23 @@ In dark mode the page is a deep green-black (`#0E1712`), panels are ink (`#14201
 
 | Use | Typeface | Size |
 |---|---|---|
-| Opening (one per page at most) | DM Serif Display | `clamp(42px, 6.2vw, 92px)`, line height 1.05 |
-| Page heading | DM Serif Display | `clamp(36px, 4.6vw, 58px)` |
-| Section heading | DM Serif Display | `clamp(30px, 3.2vw, 43px)` |
-| Card or panel heading | DM Serif Display | `clamp(22px, 2vw, 29px)` |
-| Lead paragraph | DM Sans | `clamp(17px, 1.35vw, 20px)`, moss |
-| Body | DM Sans 400 | 16 px, line height 1.7 |
-| Buttons, labels | DM Sans 500 to 600 | 15 px |
-| Label above a heading | DM Sans 600, capitals, spacing 0.16em | 12 px |
-| Captions, dates | DM Sans | 13 px, moss |
+| Opening (one per page at most) | DM Sans 500, -0.035em | `clamp(44px, 7vw, 96px)`, line height 0.98 |
+| Section heading | DM Sans 500, -0.03em | `clamp(32px, 4vw, 56px)`, line height 1.02 |
+| Card or panel heading | DM Sans 500, -0.02em | `clamp(22px, 2vw, 30px)` |
+| Lead paragraph | DM Sans 400 | `clamp(18px, 1.5vw, 22px)`, moss |
+| Body | DM Sans 400 | 16 to 18 px, line height 1.6 |
+| Buttons | DM Sans 500 | 16 px |
+| Captions, dates | DM Sans | 14 px, moss, sentence case |
 
-- Headings are never bold: DM Serif Display has one weight and that is the point.
+- **Five sizes at most** on a page, far apart. The size does the work, not bold.
+- **DM Serif Display appears only inside the logo** and the product name lockup.
+- Headings: about five words, two lines at most at every width; no italic, no second colour.
 - Small headings inside forms and lists (h4 and below) use DM Sans SemiBold.
 - Numbers that line up (tables, money, scores) use tabular figures: class `gu-num`.
 - Keep lines of text under about 68 characters (`gu-measure`).
 - Form fields are always 16 px or larger, so phones do not zoom in.
 - **Fonts are served by your own site, never from Google.** Plain sites use [`css/fonts.css`](css/fonts.css) and the `fonts` folder. Next.js uses `next/font/google`, which downloads them at build time and serves them from your domain ([docs/nextjs.md](docs/nextjs.md)).
-- **Email is the exception:** Georgia for headings, Arial for text. The logo is an image so it still shows in the brand lettering.
+- **Email is the exception:** Arial for headings and text. The logo is an image so it still shows in the brand lettering.
 
 ---
 
@@ -122,22 +137,22 @@ In dark mode the page is a deep green-black (`#0E1712`), panels are ink (`#14201
 All in [`css/guild.css`](css/guild.css), prefixed `gu-`, shown in the examples.
 
 ### Buttons
-- **Main** (`gu-btn`): forest with white words; coral with ink words on a forest band or in dark mode. One per screen.
-- **Secondary** (`gu-btn--secondary`): outlined. **Ghost** (`gu-btn--ghost`): words only, for Cancel.
+- **Main** (`gu-btn`): a flat forest block with white words, square corners; white with forest words on a forest band. One per screen.
+- **Secondary** (`gu-btn--secondary`): a plain underlined text link, or a white block on forest. **Ghost** (`gu-btn--ghost`): words only, for Cancel.
 - **Danger** (`gu-btn--danger`): only for the final confirm of something that cannot be undone, and it says exactly what it will do: "Delete the class", never "OK".
 - **Icon** (`gu-btn--icon`): round, 44 px, always with an `aria-label`. Add `gu-btn--ring` for a thin ring.
-- Buttons that go somewhere carry the arrow. Buttons that do something in place do not.
+- No icons or arrows in buttons. The words name the action.
 - A short reassurance line under the main button where it helps (`gu-btn-note`): "No obligation. We reply within one working day."
 - Button words are verbs and say the result: "Save the register", "Send message", "Track your job".
 
 ### Links
-- In text: forest, underlined. Standalone: `gu-link` with the arrow.
-- A card that is one link (`a.gu-card`) is clickable all over and shows the arrow in its top corner. A card without the arrow does nothing on click. A picture is a link only when it carries the round arrow badge.
+- In text and standalone: forest, underlined, no arrow.
+- A card that is one link (`a.gu-card`) is a filled panel, clickable all over, and its link text says where it goes. No corner arrows or badges.
 
 ### Cards, panels and tiles
 - `gu-card`: white, thin line, 6 px corners. `gu-tile`: sage, no line. `gu-panel`: forest feature panel with coral accents and numbered steps.
 - `gu-steps`: numbered coral discs for "what happens next". Three steps is ideal, five at most.
-- `gu-stat`: a big serif number with a small label. Use for the two or three numbers that matter, not a wall of them.
+- `gu-stat`: a big number in DM Sans with a plain one-line explanation. Use for the two or three numbers that matter, not a wall of them.
 
 ### Forms
 - Labels above fields. Hint text under the label, before the field. The problem under the field, in plain words, after they leave it or press send.
@@ -159,10 +174,10 @@ All in [`css/guild.css`](css/guild.css), prefixed `gu-`, shown in the examples.
 
 ### Tables and lists
 - `gu-table`: sage header, thin lines, numbers right-aligned and tabular. Add `gu-table--stack` and `data-label` on each cell so it turns into a list of cards on phones.
-- `gu-rows`: a simple list of tappable rows, 60 px tall, with the arrow when a row goes somewhere.
+- `gu-rows`: a simple list of tappable rows, 60 px tall.
 
 ### Navigation
-- **Public sites:** logo left, a few words of navigation in the middle, one main button right ("Let's talk"). On phones, a full-screen menu (`gu-menu`) with large serif words and the arrow, the phone number at the bottom.
+- **Public sites:** logo left, a few words of navigation in the middle, one main button right ("Let's talk"). On phones, a full-screen menu (`gu-menu`) with large plain words, the phone number at the bottom.
 - **Apps:** a bottom tab bar on phones (`gu-tabbar`, 3 to 5 items, icon and word), a forest side menu on computers (`gu-sidenav`) with a coral line marking where you are. The current page always has `aria-current="page"`.
 - Always a "Skip to content" link first (`gu-skip`).
 - The footer of every product carries **"A Guild UK project"** with the crown (`gu-made-by`), linking to guilduk.com.
@@ -190,7 +205,7 @@ Warm, quick and quiet. Motion explains what happened; it is never decoration tha
 | What | How long | Easing |
 |---|---|---|
 | Hover colour | 150 ms | linear |
-| Small things (arrow nudge, toast in) | 250 ms | `cubic-bezier(0.23, 1, 0.32, 1)` |
+| Small things (state change, toast in) | 250 ms | `cubic-bezier(0.23, 1, 0.32, 1)` |
 | Picture zoom on hover | 500 to 600 ms | same |
 | Sections appearing on scroll | 800 ms, staggered 90 ms | same |
 | Drawers and sheets | 300 ms | `cubic-bezier(0.32, 0.72, 0, 1)` |
@@ -212,7 +227,7 @@ Warm, quick and quiet. Motion explains what happened; it is never decoration tha
 - **No tool names in public** (except privacy, cookies and legal pages).
 - **Never invent** clients, quotes, reviews, numbers, results or photos.
 - **Open to everyone:** "charities, community and faith groups", never one group alone.
-- **Headings** are short statements, not questions, with the italic accent on the human part.
+- **Headings** are short statements, about five words, two lines at most, with no italic accent and no label above.
 - **Buttons** say what happens: "Save the register", not "Submit".
 - **Errors** say what went wrong and how to fix it, without blame: "Check the email address, for example name@example.org". Never "Invalid input".
 - **Confirmations** are past tense and give the reference: "Register saved. Reference REG-2611-K4PQ."
@@ -255,14 +270,14 @@ A working starting point is in [`email/template.html`](email/template.html).
 
 ## 12. Documents and print
 
-White page, the logo top left, headings in DM Serif Display, text in DM Sans, a thin coral line above the footer. Send as PDF so the lettering travels with it. For print, give the printer the hex codes and ask for a proof: coral can print darker or more orange than on screen.
+White page, the logo top left, headings and text in DM Sans, filled panels rather than outlined boxes. The print skeletons (version 2) set the zones for every print piece. Send as PDF so the lettering travels with it. For print, give the printer the hex codes and ask for a proof: coral can print darker or more orange than on screen.
 
 ---
 
 ## 13. Naming a product
 
 - **Short, lower case, a real word** that says what it does or how it feels: `here` (a register), `health` (a family tracker).
-- Shown in DM Serif Display next to its stamp mark.
+- Shown next to its stamp mark in the logo lettering.
 - Each product's footer and About page say **"A Guild UK project"** with the crown, linking to guilduk.com.
 - The Guild UK name, crown and stamp frame belong to Guild UK Systems Limited. See [BRAND.md](BRAND.md).
 
@@ -272,5 +287,6 @@ White page, the logo top left, headings in DM Serif Display, text in DM Sans, a 
 
 | Date | Decision |
 |---|---|
+| 4 November 2026 | Skeleton v2 (approved by Michael): the italic heading, the label above, the arrow and decorative numbering retired as AI tells; DM Sans headings; colour fields and filled panels; coral only for the stamp; real photos with people of every skin colour; one live thing on selling pages. |
 | 1 November 2026 | Guild Design v1: the guilduk.com look made into a kit for every product. Dark mode added (coral actions on deep green). Product icons: the stamp frame with each product's symbol. |
 | 30 October 2026 | Forest and coral, DM Serif Display and DM Sans, the crown stamp kept and recoloured. |
